@@ -161,3 +161,13 @@ cython_debug/
 
 .ruff_cache/
 *.zip
+
+# Assignment runtime artifacts (too large for GitHub; backed up under /ai/lmfs2026/data)
+outputs/
+outputs
+wandb/
+*.pt
+*.npy
+*.pid
+train_*.log
+pyproject.toml.bak
