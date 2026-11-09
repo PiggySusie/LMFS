@@ -1,0 +1,28 @@
+=================================================================
+FlashAttention-2 Evaluation
+Student: /home/zhuziyue/assignment2/zhuziyue.py
+GPU: cuda:0
+Mode: accuracy
+Input dtype: student INPUT_DTYPE (default torch.float32)
+=================================================================
+
+=================================================================
+CONFIG 1: (24, 16384, 128)
+=================================================================
+Student INPUT_DTYPE: torch.float16
+GPU: NVIDIA A800 80GB PCIe
+Configuration: (24, 16384, 128)
+
+[ACCURACY] H=24 N=16384 D=128
+  Input dtype: torch.float16
+  Reference format: original seven-array NPZ
+  o       max_error=7.581711e-05 atol=0.001 coefficient=1.0
+  grad_q  max_error=1.147240e-04 atol=0.001 coefficient=1.0
+  grad_k  max_error=7.572770e-04 atol=0.001 coefficient=1.0
+  grad_v  max_error=6.302595e-04 atol=0.001 coefficient=1.0
+  Worst atol: 0.001
+ACCURACY_COEFFICIENT: 1.0
+CONFIG 1 EXIT CODE: 0
+
+评测结束。
+全部配置已完成运行。效率排名需结合全班成绩计算。

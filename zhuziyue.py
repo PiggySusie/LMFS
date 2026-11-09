@@ -276,7 +276,7 @@ def _bwd_dkdv_kernel(
 
     dk = dk * sm_scale
     _store_tile(
-        DK, dk.to(tl.float16), pid_h, stride_dkh, stride_dkm, stride_dkd, offs_n, cols, seq_len, dim, EVEN_D
+        DK, dk, pid_h, stride_dkh, stride_dkm, stride_dkd, offs_n, cols, seq_len, dim, EVEN_D
     )
     _store_tile(
         DV, dv.to(tl.float16), pid_h, stride_dvh, stride_dvm, stride_dvd, offs_n, cols, seq_len, dim, EVEN_D
@@ -440,7 +440,7 @@ def _backward(q, k, v, out, do, row_max, row_sum, sm_scale):
 
     delta = torch.empty((heads, seq_len), device=q.device, dtype=torch.float32)
     dq = torch.empty_like(q)
-    dk = torch.empty_like(k)
+    dk = torch.empty(k.shape, device=k.device, dtype=torch.float32)
     dv = torch.empty_like(v)
 
     grid_m = (triton.cdiv(seq_len, _BLOCK_M), heads)
@@ -501,6 +501,8 @@ class FlashAttention2(torch.autograd.Function):
 
     @staticmethod
     def forward(ctx, q, k, v):
+        if k.requires_grad:
+            k.grad_dtype = torch.float32
         out, row_max, row_sum, sm_scale = _forward(q, k, v)
         ctx.save_for_backward(q, k, v, out, row_max, row_sum)
         ctx.sm_scale = sm_scale

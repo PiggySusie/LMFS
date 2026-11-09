@@ -1,0 +1,52 @@
+=================================================================
+FlashAttention-2 Evaluation
+Student: /home/zhuziyue/assignment2/zhuziyue.py
+GPU: cuda:0
+Mode: efficiency
+Input dtype: student INPUT_DTYPE (default torch.float32)
+=================================================================
+
+=================================================================
+CONFIG 1: (24, 16384, 128)
+=================================================================
+Student INPUT_DTYPE: torch.float16
+GPU: NVIDIA A800 80GB PCIe
+Configuration: (24, 16384, 128)
+
+[EFFICIENCY] H=24 N=16384 D=128
+  Input dtype: torch.float16
+  Time: 276.2793 ms
+  PyTorch peak allocated: 1.286 GiB
+  PyTorch peak reserved:  1.303 GiB
+CONFIG 1 EXIT CODE: 0
+
+=================================================================
+CONFIG 2: (64, 130000, 128)
+=================================================================
+Student INPUT_DTYPE: torch.float16
+GPU: NVIDIA A800 80GB PCIe
+Configuration: (64, 130000, 128)
+
+[EFFICIENCY] H=64 N=130000 D=128
+  Input dtype: torch.float16
+  Time: 47859.8047 ms
+  PyTorch peak allocated: 22.167 GiB
+  PyTorch peak reserved:  25.893 GiB
+CONFIG 2 EXIT CODE: 0
+
+=================================================================
+CONFIG 3: (256, 131072, 100)
+=================================================================
+Student INPUT_DTYPE: torch.float16
+GPU: NVIDIA A800 80GB PCIe
+Configuration: (256, 131072, 100)
+
+[EFFICIENCY] H=256 N=131072 D=100
+  Input dtype: torch.float16
+  Time: 367083.0312 ms
+  PyTorch peak allocated: 69.375 GiB
+  PyTorch peak reserved:  75.377 GiB
+CONFIG 3 EXIT CODE: 0
+
+评测结束。
+全部配置已完成运行。效率排名需结合全班成绩计算。
