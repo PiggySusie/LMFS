@@ -1,0 +1,49 @@
+=================================================================
+FlashAttention-2 Evaluation
+Student: /home/zhuziyue/assignment2/zhuziyue.py
+GPU: cuda:0
+Mode: accuracy
+Input dtype: student INPUT_DTYPE (default torch.float32)
+=================================================================
+
+=================================================================
+CONFIG 3: (256, 131072, 100)
+=================================================================
+Student INPUT_DTYPE: torch.float16
+GPU: NVIDIA A800 80GB PCIe
+Configuration: (256, 131072, 100)
+
+[ACCURACY] H=256 N=131072 D=100
+  Input dtype: torch.float16
+  Reference format: seed-reconstructed QKV + O/dQ only
+  QKV generator seed: 2026
+  Reference arrays: O, dQ (FP32)
+  Reconstructing C Q/K/V from fixed seed...
+  Reconstructed 32/256 heads
+  Reconstructed 64/256 heads
+  Reconstructed 96/256 heads
+  Reconstructed 128/256 heads
+  Reconstructed 160/256 heads
+  Reconstructed 192/256 heads
+  Reconstructed 224/256 heads
+  Reconstructed 256/256 heads
+  Running full C Forward...
+  Running full C Backward...
+  C Forward + Backward completed
+  Comparing O/dQ against NPZ one head at a time...
+  Compared 32/256 heads
+  Compared 64/256 heads
+  Compared 96/256 heads
+  Compared 128/256 heads
+  Compared 160/256 heads
+  Compared 192/256 heads
+  Compared 224/256 heads
+  Compared 256/256 heads
+  o       max_error=3.345869e-05 atol=0.001 coefficient=1.0
+  grad_q  max_error=5.677715e-05 atol=0.001 coefficient=1.0
+  Worst atol: 0.001
+ACCURACY_COEFFICIENT: 1.0
+CONFIG 3 EXIT CODE: 0
+
+评测结束。
+全部配置已完成运行。效率排名需结合全班成绩计算。
